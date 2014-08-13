@@ -7,6 +7,7 @@
 # such as a RightScale Master Subscription Agreement.
 
 require 'fileutils'
+require 'rightscale_tools/mixin/common'
 
 module RightScale
   module Tools
