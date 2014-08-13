@@ -22,10 +22,15 @@ module RightScale
         def init(new_resource)
           begin
             require 'rightscale_tools'
-            require File.dirname(__FILE__) +  '/hbdatabase.rb'
+            
           rescue LoadError
             Chef::Log.warn "  Missing gem 'rightscale_tools'"
           end
+          begin
+            require File.dirname(__FILE__) +  '/hbdatabase.rb'
+          rescue LoadError
+            Chef::Log.warn "Can not load custom hbdatabase. "
+          end          
           mount_point = new_resource.name
           RightScale::Tools::HBDatabase.factory(
             :postgres,
