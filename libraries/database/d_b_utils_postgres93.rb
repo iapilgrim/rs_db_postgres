@@ -9,6 +9,7 @@
 require 'rubygems'
 require 'pg'
 require 'fileutils'
+Gem.clear_paths
 require 'system_timer'
 
 require File.dirname(__FILE__) +  '/d_b_utils.rb'
