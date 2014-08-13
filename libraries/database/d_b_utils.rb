@@ -7,6 +7,7 @@
 # such as a RightScale Master Subscription Agreement.
 
 require 'rubygems'
+Gem.clear_paths
 require 'system_timer'
 
 module RightScale  
