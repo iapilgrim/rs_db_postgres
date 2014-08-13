@@ -15,12 +15,14 @@ module RightScale
       include FileUtils::Verbose
 
       def initialize(user, passwd, data_dir, timeout, max_attempts, logger=Logger(stdout))
+        require 'rubygems'
+        Gem.clear_paths
+        require 'pg' 
+        require 'rightscale_tools'                   
         require 'rightscale_tools/premium/db/common/d_b_utils'
         # require 'rightscale_tools/premium/db/common/d_b_utils_postgres91'
         require File.dirname(__FILE__) +  '/d_b_utils_postgres93.rb'
-        require 'rubygems'
-        Gem.clear_paths
-        require 'pg'
+
         super("PostgreSQL", user, passwd, data_dir, timeout, max_attempts, logger)
         @db = create_shared_premium_util
       end

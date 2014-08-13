@@ -12,6 +12,7 @@ require 'fileutils'
 require 'system_timer'
 
 # require File.dirname(__FILE__) +  '/../common/d_b_utils.rb'
+require 'rightscale_tools'
 require 'rightscale_tools/premium/db/common/d_b_utils'
 
 module RightScale
