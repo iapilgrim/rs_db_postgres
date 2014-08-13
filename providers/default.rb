@@ -194,14 +194,14 @@ end
 # Installs database client
 action :install_client do
   version = new_resource.db_version
-  if version == "9.1"
+  if version == "9.3"
     node[:db_postgres][:client_packages_install] = value_for_platform(
       ["centos", "redhat"] => {
         "default" => [
           "libxslt",
-          "postgresql91-libs",
-          "postgresql91",
-          "postgresql91-devel"
+          "postgresql93-libs",
+          "postgresql93",
+          "postgresql93-devel"
         ]
       },
       "default" => []
@@ -209,7 +209,7 @@ action :install_client do
 
     node[:db_postgres][:bindir] = value_for_platform(
       ["centos", "redhat"] => {
-        "default" => "/usr/pgsql-9.1/bin"
+        "default" => "/usr/pgsql-9.3/bin"
       }
     )
   else
@@ -359,7 +359,7 @@ action :install_client_driver do
     # This adapter type is required by application servers,
     # such as JBoss and Tomcat.
     node[:db][:client][:driver] = "org.postgresql.Driver"
-    if version == "9.1"
+    if version == "9.3"
       node[:db][:client][:jar_file] = value_for_platform(
         ["centos", "redhat"] => {
           "default" => "postgresql-9.1-901.jdbc4.jar"
