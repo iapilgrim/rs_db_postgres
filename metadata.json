@@ -25,7 +25,7 @@
       "description": "Use 'dedicated' if the PostgreSQL config file allocates all existing resources of the machine. Use 'shared' if the PostgreSQL config file is configured to use less resources so that it can be run concurrently with other apps like Apache and Rails for example. Example: dedicated",
       "recipes": [
         "db_postgres::setup_server_9_1",
-        "db_postgres::setup_server_9_3",        
+        "db_postgres::setup_server_9_3"
       ]
     },
     "db_postgres": {
@@ -53,12 +53,13 @@
       "description": "Defines master-slave replication mode. Default: async",
       "recipes": [
         "db_postgres::setup_server_9_1",
+        "db_postgres::setup_server_9_3",
         "db_postgres::do_set_slave_sync_mode"
       ]
     }
   },
   "license": "Copyright RightScale, Inc. All rights reserved.",
-  "maintainer_email": "support@rightscale.com",
+  "maintainer_email": "van.le@hrboss.com",
   "description": "Provides the PostgreSQL implementation of the 'db' resource to install and manage PostgreSQL database stand-alone servers and clients.",
   "replacing": {
   },
